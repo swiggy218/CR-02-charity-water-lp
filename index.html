@@ -3,45 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Charity: Water - Landing Page</title>
+    <!-- Poppins font from Google Fonts, similar to Proxima Nova -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F8EFE3;
+        }
+        .jerry-can-link:hover .jerry-can-svg {
+            transform: scale(1.05);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1D3557;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #457B9D;
+            border-radius: 4px;
+        }
+        .apple-pay-button {
+            background-color: black;
+            color: white;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .apple-pay-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Two-column layout for the hero section */
+        @media (min-width: 768px) {
+            .hero-bg-container {
+                display: flex;
+                min-height: calc(100vh - 80px);
+            }
+        }
+        
+        /* Hero section left side with the solid color */
+        .hero-left {
+            background-image: url('https://i.imgur.com/UQTlJkB.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Responsive behavior for columns */
+        @media (max-width: 767px) {
+            .hero-left {
+                width: 100%;
+                height: 50vh;
+            }
+            .hero-right {
+                width: 100%;
+            }
+        }
+        
+        .main-hero-content {
+            background-color: #F8EFE3;
+            max-width: 90%;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .main-hero-content {
+                max-width: 32rem;
+            }
+        }
+
+        .rainbow-bg {
+            background-color: #F8EFE3;
+            border-top-left-radius: 4rem;
+            border-top-right-radius: 4rem;
+        }
+        
+        #nav-modal-text {
+            max-height: 50vh; /* Limits the height of the modal content */
+            overflow-y: auto; /* Adds a scrollbar if the content overflows */
+        }
+    </style>
 </head>
-<body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+<body class="bg-[#F8EFE3]">
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <!-- A simple, modern header with a logo, name, and navigation links. -->
+    <header class="w-full bg-[#F8EFE3] text-gray-900 py-3 px-4 md:px-8 lg:px-24 sticky top-0 z-50 border-0 shadow-none">
+        <nav class="flex items-center justify-between">
+            <!-- Correct Logo with a working link -->
+            <div class="flex items-center">
+                 <a href="#" class="nav-link" data-message="At charity: water, we believe clean water changes everything. For millions of people, a simple drink of water is a daily struggle. We exist to bring hope and life by funding clean water projects for communities in need. Since 2006, we've been on a mission to end the global water crisis with a simple promise: every single penny of your donation goes directly to fund clean water projects. Together, we can bring health, time, and opportunity to those who need it most. Join us and help change lives, one drop at a time.">
+                     <img src="https://i.imgur.com/SU45yqY.png" alt="Charity Water logo" class="h-6 w-auto">
+                 </a>
+            </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+            <!-- Navigation Links for Desktop -->
+            <ul id="desktop-menu" class="hidden md:flex flex-wrap justify-center space-x-4 md:space-x-8 text-sm">
+                <li><a href="#" class="nav-link font-bold text-[#77a8bb] hover:text-[#457B9D] transition-colors duration-200" data-message="charity: water is a nonprofit organization bringing clean and safe water to people around the world! Our mission is to end the global water crisis. Since 2006, we've been working with local partners and generous supporters to solve this problem. We believe everyone will have access to life's most basic need within our lifetime!">About Us</a></li>
+                <li><a href="#" class="nav-link font-bold text-[#77a8bb] hover:text-[#457B9D] transition-colors duration-200" data-message="703 million people lack basic access to clean and safe drinking water. We've been on a mission to end the water crisis since 2006, and with the help of generous supporters like you, we're getting closer every day.|STATS|We've served 20,297,336 people through 186,000 water projects in 29 countries.">Our Work</a></li>
+                <li><a href="#" class="nav-link font-bold text-[#77a8bb] hover:text-[#457B9D] transition-colors duration-200" data-message="<p>Nearly 1 in 10 people worldwide lack basic access to clean and safe drinking water. Walking for water takes up hours every day, keeping children out of school and preventing parents from earning an income. This water often carries diseases that make everyone sick. </p><br><p>Access to clean drinking water changes everything! We provide communities with access to better health, time, education, and empowering women and girls. We work with local experts to find sustainable solutions that ensures water keeps flowing for years to come.</p>">The Water Crisis</a></li>
+                <li><a href="#" id="header-donate-button" class="font-bold text-[#bf6c46] bg-[#fed8c1] px-4 py-2 rounded-full transition-colors duration-200 hover:bg-[#ff99a9]">Donate</a></li>
+            </ul>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Navigation Menu -->
+        <ul id="mobile-menu" class="hidden flex-col items-center mt-4 space-y-2 text-sm bg-[#F8EFE3] text-gray-900">
+                <li><a href="#" class="nav-link font-bold block py-2 text-[#77a8bb] hover:text-[#457B9D] transition-colors duration-200" data-message="charity: water is a nonprofit organization bringing clean and safe water to people around the world! Our mission is to end the global water crisis. Since 2006, we've been working with local partners and generous supporters to solve this problem. We believe everyone will have access to life's most basic need within our lifetime!">About Us</a></li>
+                <li><a href="#" class="nav-link font-bold block py-2 text-[#77a8bb] hover:text-[#457B9D] transition-colors duration-200" data-message="703 million people lack basic access to clean and safe drinking water. We've been on a mission to end the water crisis since 2006, and with the help of generous supporters like you, we're getting closer every day.|STATS|We've served 20,297,336 people through 186,000 water projects in 29 countries.">Our Work</a></li>
+                <li><a href="#" class="nav-link font-bold block py-2 text-[#77a8bb] hover:text-[#457B9D] transition-colors duration-200" data-message="<p>Nearly 1 in 10 people worldwide lack basic access to clean and safe drinking water. Walking for water takes up hours every day, keeping children out of school and preventing parents from earning an income. This water often carries diseases that make everyone sick. </p><br><p>Access to clean drinking water changes everything! We provide communities with access to better health, time, education, and empowering women and girls. We work with local experts to find sustainable solutions that ensures water keeps flowing for years to come.</p>">The Water Crisis</a></li>
+                <li><a href="#" id="mobile-header-donate-button" class="font-bold text-[#bf6c46] bg-[#fed8c1] px-4 py-2 rounded-full transition-colors duration-200 hover:bg-[#ff99a9] block py-2">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- New container for the full-page gradient background -->
+    <div class="w-full text-white" style="background-image: linear-gradient(to bottom, #003366 60%, #000000 100%);">
+
+        <!-- Hero Section with the new two-column layout -->
+        <main class="w-full hero-bg-container">
+            <!-- Left Side: Gradient Background -->
+            <div class="hero-left w-full md:w-1/2 flex items-center justify-center p-4">
+                <div class="relative z-10 w-full max-w-xl text-center flex flex-col items-center justify-center">
+                    <!-- Text box with the new semi-transparent color -->
+                    <div style="background-color: rgba(255, 247, 225, 0.9);" class="p-4 w-full max-w-[19rem] shadow-2xl mx-auto flex flex-col items-center justify-center rounded-t-[6rem]">
+                        
+                        <!-- Charity Water Logo inside the text box -->
+                        <a href="#" class="nav-link" data-message="At charity: water, we believe clean water changes everything. For millions of people, a simple drink of water is a daily struggle. We exist to bring hope and life by funding clean water projects for communities in need. Since 2006, we've been on a mission to end the global water crisis with a simple promise: every single penny of your donation goes directly to fund clean water projects. Together, we can bring health, time, and opportunity to those who need it most. Join us and help change lives, one drop at a time.">
+                             <img src="https://i.imgur.com/bvAN5ua.png" alt="Charity Water logo" class="h-14 w-auto mb-3">
+                        </a>
+                        
+                        <h1 class="text-sm font-normal text-[#77a8bb] mb-2 leading-tight">No One Deserves Dirty Drinking Water</h1>
+                        <p class="text-[11px] font-normal text-[#003366] leading-relaxed mb-3">
+                            Millions live without access to safe drinking water. 100% of your donation will help charity: water bring health, education, and opportunity to entire communities in need.
+                        </p>
+                        
+                        <!-- Updated Donate Now text -->
+                        <div class="text-[10px] font-normal text-black text-center mb-2">
+                            <b>Donate Now, Click the Jerry Can!</b>
+                        </div>
+                        <!-- Updated Donate Now button with a better Jerry Can SVG -->
+                        <a id="donate-button" href="#" class="relative w-20 h-20 flex items-center justify-center font-bold text-center jerry-can-link">
+                            <!-- New jerry can image -->
+                            <img src="https://i.imgur.com/c4MYq0E.png" alt="Jerry Can" class="absolute inset-0 w-full h-full object-contain transition-transform duration-200" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side: Text and Image -->
+            <div class="hero-right relative w-full md:w-1/2 flex items-center justify-center p-4">
+                <div class="relative z-10 w-full max-w-xl text-center flex items-center justify-center">
+                    <!-- The new rounded image box -->
+                    <div style="background-color: rgba(254, 216, 193, 0.9);" class="rounded-lg w-full max-w-md shadow-2xl mx-auto p-2 md:p-4 flex flex-col items-center justify-center">
+                        <img src="https://i.imgur.com/XpGsg6x.png" alt="Happy girl splashing in clean water" class="w-full h-auto object-cover rounded-lg mb-0">
+                        <p class="text-xs text-[#bf6c46] font-normal mt-4 text-center px-4">With your help, children and families are given the chance to a healthy future.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- New Image Gallery Section -->
+        <section class="py-12 px-4 md:px-8 lg:px-24">
+            <!-- New relative container for the heading and wave shape -->
+            <div class="relative w-fit mx-auto mb-8 px-4">
+                <!-- The cute wave/water shaped text box -->
+                <div style="background-color: rgba(255, 201, 7, 0.9);" class="absolute inset-0 rounded-full"></div>
+                <!-- The heading, now with a higher z-index -->
+                <h2 class="relative z-10 text-lg text-[#bf6c46] text-center">Flicks that were made possible by your generosity 📷</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="overflow-hidden shadow-lg">
+                    <img src="https://i.imgur.com/h2s7gqv.png" alt="Children gathering clean water" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden shadow-lg">
+                    <img src="https://i.imgur.com/cV4UAvt.png" alt="A well being built in a community" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden shadow-lg">
+                    <img src="https://i.imgur.com/tDjscub.png" alt="A family smiling with clean water" class="w-full h-auto object-cover">
+                </div>
+                <div class="overflow-hidden shadow-lg">
+                    <img src="https://i.imgur.com/KPoOEiY.jpeg" alt="A woman holding a bucket of clean water" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal for navigation links -->
+    <div id="nav-modal-container" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-[#77a8bb]/90 rounded-2xl p-8 md:p-12 lg:p-16 w-11/12 max-w-lg text-center relative z-10 shadow-2xl">
+            <button id="nav-modal-close-button" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h2 id="nav-modal-title" class="text-2xl font-bold text-[#003366] mb-4"></h2>
+            <div id="nav-modal-text" class="text-gray-700 leading-relaxed mb-6"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Donation button -->
+    <div id="donate-modal-container" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-[#77a8bb]/90 rounded-2xl p-8 md:p-12 lg:p-16 w-11/12 max-w-lg text-center relative z-10 shadow-2xl">
+            <button id="donate-modal-close-button" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h2 class="text-2xl font-bold text-[#003366] mb-4">Donate Today!</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Fill out the form below to provide a name and number, and use the Apple Pay button to securely donate!
+            </p>
+            <form id="donation-form" class="space-y-4">
+                <div>
+                    <h3 class="block text-gray-700 font-semibold text-left mb-2">Choose an Amount</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <label class="p-2 border rounded-full cursor-pointer bg-white">
+                            <input type="radio" name="donation-amount" value="5" class="sr-only">
+                            $5
+                        </label>
+                        <label class="p-2 border rounded-full cursor-pointer bg-white">
+                            <input type="radio" name="donation-amount" value="10" class="sr-only">
+                            $10
+                        </label>
+                        <label class="p-2 border rounded-full cursor-pointer bg-white">
+                            <input type="radio" name="donation-amount" value="25" class="sr-only">
+                            $25
+                        </label>
+                        <label class="p-2 border rounded-full cursor-pointer bg-white">
+                            <input type="radio" name="donation-amount" value="50" class="sr-only">
+                            $50
+                        </label>
+                        <label class="p-2 border rounded-full cursor-pointer bg-white">
+                            <input type="radio" name="donation-amount" value="other" class="sr-only">
+                            Other
+                        </label>
+                    </div>
+                </div>
+                <div id="custom-amount-input" class="hidden">
+                    <label for="custom-amount" class="block text-gray-700 font-semibold text-left">Custom Amount</label>
+                    <input type="number" id="custom-amount" name="custom-amount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-white/50 focus:ring-opacity-50" placeholder="e.g., 50">
+                </div>
+                <div>
+                    <label for="name" class="block text-gray-700 font-semibold text-left">Your Name</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-white/50 focus:ring-opacity-50" placeholder="Jerry K. Canne">
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 font-semibold text-left">Your Number</label>
+                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 bg-white/50 focus:ring-opacity-50" placeholder="(555) 555-5555">
+                </div>
+                <button type="button" class="apple-pay-button mt-4">
+                    Donate with Apple Pay
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- New Modal for "Thank You" message -->
+    <div id="thank-you-modal-container" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-[#77a8bb]/90 rounded-2xl p-8 md:p-12 lg:p-16 w-11/12 max-w-lg text-center relative z-10 shadow-2xl">
+            <button id="thank-you-modal-close-button" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors duration-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">Thank You!</h2>
+            <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                Your generosity will help provide clean, safe drinking water to communities in need. Every drop makes a difference!
             </p>
         </div>
-    </section>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const donateButton = document.getElementById('donate-button');
+            const headerDonateButton = document.getElementById('header-donate-button');
+            const mobileHeaderDonateButton = document.getElementById('mobile-header-donate-button');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const navModalContainer = document.getElementById('nav-modal-container');
+            const navModalTitle = document.getElementById('nav-modal-title');
+            const navModalText = document.getElementById('nav-modal-text');
+            const navModalCloseButton = document.getElementById('nav-modal-close-button');
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+            const donateModalContainer = document.getElementById('donate-modal-container');
+            const donateModalCloseButton = document.getElementById('donate-modal-close-button');
+            const applePayButton = document.querySelector('.apple-pay-button');
+
+            const thankYouModalContainer = document.getElementById('thank-you-modal-container');
+            const thankYouModalCloseButton = document.getElementById('thank-you-modal-close-button');
+
+            const donationAmountInputs = document.querySelectorAll('input[name="donation-amount"]');
+            const customAmountInputDiv = document.getElementById('custom-amount-input');
+            
+            // Helper function to open a modal and prevent body scrolling
+            const openModal = (modal) => {
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            };
+
+            // Helper function to close a modal and re-enable body scrolling
+            const closeModal = (modal) => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            };
+
+            // All event listeners are now inside the DOMContentLoaded handler
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            function openNavModal(title, text) {
+                navModalTitle.textContent = title;
+                if (text.includes('|STATS|')) {
+                    const parts = text.split('|STATS|');
+                    let modalContentHtml = `<p>${parts[0]}</p>`;
+                    if (parts[1]) {
+                        modalContentHtml += `<p class="mt-4 text-[#FFC907] font-bold text-lg">${parts[1]}</p>`;
+                    }
+                    navModalText.innerHTML = modalContentHtml;
+                } else {
+                    navModalText.innerHTML = text;
+                }
+                openModal(navModalContainer);
+            }
+
+            donateButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(donateModalContainer);
+            });
+            
+            if (headerDonateButton) {
+                headerDonateButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(donateModalContainer);
+                });
+            }
+
+            if (mobileHeaderDonateButton) {
+                mobileHeaderDonateButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(donateModalContainer);
+                    mobileMenu.classList.add('hidden');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const message = link.getAttribute('data-message');
+                    const title = link.textContent;
+                    openNavModal(title, message);
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            navModalCloseButton.addEventListener('click', () => {
+                closeModal(navModalContainer);
+            });
+
+            donateModalCloseButton.addEventListener('click', () => {
+                closeModal(donateModalContainer);
+            });
+
+            thankYouModalCloseButton.addEventListener('click', () => {
+                closeModal(thankYouModalContainer);
+            });
+
+            donationAmountInputs.forEach(input => {
+                input.addEventListener('change', (e) => {
+                    if (e.target.value === 'other') {
+                        customAmountInputDiv.classList.remove('hidden');
+                    } else {
+                        customAmountInputDiv.classList.add('hidden');
+                    }
+                });
+            });
+
+            applePayButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeModal(donateModalContainer);
+                openModal(thankYouModalContainer);
+            });
+            
+            // Close modal on backdrop click
+            navModalContainer.addEventListener('click', (e) => {
+                if (e.target === navModalContainer) {
+                    closeModal(navModalContainer);
+                }
+            });
+
+            donateModalContainer.addEventListener('click', (e) => {
+                if (e.target === donateModalContainer) {
+                    closeModal(donateModalContainer);
+                }
+            });
+
+            thankYouModalContainer.addEventListener('click', (e) => {
+                if (e.target === thankYouModalContainer) {
+                    closeModal(thankYouModalContainer);
+                }
+            });
+
+            // Close modal on Escape key press
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (!navModalContainer.classList.contains('hidden')) {
+                        closeModal(navModalContainer);
+                    } else if (!donateModalContainer.classList.contains('hidden')) {
+                        closeModal(donateModalContainer);
+                    } else if (!thankYouModalContainer.classList.contains('hidden')) {
+                        closeModal(thankYouModalContainer);
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
